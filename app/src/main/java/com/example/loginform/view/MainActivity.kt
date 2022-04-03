@@ -1,4 +1,4 @@
-package com.example.loginform.ui
+package com.example.loginform.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
