@@ -108,19 +108,41 @@
         android:id="@+id/progressLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/white"
+        android:elevation="@dimen/progress_layout_elevation"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/forgotPasswordButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible">
 
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/progress_bar_margin_top" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/successImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/progress_bar_margin_top"
+            android:src="@drawable/ic_baseline_task_alt_24"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/errorImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/progress_bar_margin_top"
+            android:src="@drawable/ic_baseline_error_outline_24"
+            android:visibility="gone" />
 
     </FrameLayout>
 

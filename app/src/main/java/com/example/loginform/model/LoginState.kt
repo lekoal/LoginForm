@@ -4,5 +4,5 @@ data class LoginState(
     val isSuccess: Boolean = false,
     val isError: Boolean = false,
     val errorText: String = "",
-    val isLoading: Boolean = false
+    val successText: String = ""
 )
