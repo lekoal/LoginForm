@@ -8,4 +8,6 @@ interface LoginStateContract {
     fun getSuccess(): LoginState
     fun getError(errorType: String): LoginState
     fun getErrorState(): LoginState
+    fun onViewAttach(view: LoginViewContract)
+    fun onLogin(userName: String, password: String)
 }

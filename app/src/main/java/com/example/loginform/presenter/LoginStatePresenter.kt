@@ -1,8 +1,11 @@
 package com.example.loginform.presenter
 
+import android.os.CountDownTimer
 import com.example.loginform.model.*
 
-class LoginStatePresenter(val isLoading: Boolean = false) : LoginStateContract {
+class LoginStatePresenter : LoginStateContract {
+    private var view: LoginViewContract? = null
+    private var isSuccess = false
 
     override fun getSuccess() = LoginStateItems().getSuccess()
 
@@ -19,6 +22,37 @@ class LoginStatePresenter(val isLoading: Boolean = false) : LoginStateContract {
             8 -> getError(LOADING_ERROR)
             9 -> getError(NETWORK_ERROR)
             else -> getError(PASSWORD_ERROR)
+        }
+    }
+
+    override fun onViewAttach(view: LoginViewContract) {
+        this.view = view
+    }
+
+    override fun onLogin(userName: String, password: String) {
+        view?.showLoading(true)
+        if (userName == "admin" && password == "admin") {
+            isSuccess = true
+            object : CountDownTimer(2000, 2000) {
+                override fun onTick(p0: Long) {}
+
+                override fun onFinish() {
+                    view?.showLoading(false)
+                    view?.setSuccess(getSuccess().successText)
+                }
+
+            }.start()
+        } else {
+            isSuccess = false
+            object : CountDownTimer(2000, 2000) {
+                override fun onTick(p0: Long) {}
+
+                override fun onFinish() {
+                    view?.showLoading(false)
+                    view?.setError(getErrorState().errorText)
+                }
+
+            }.start()
         }
     }
 }
