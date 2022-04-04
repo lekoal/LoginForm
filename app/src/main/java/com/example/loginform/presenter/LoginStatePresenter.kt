@@ -1,11 +1,14 @@
 package com.example.loginform.presenter
 
 import android.os.CountDownTimer
+import android.view.View
 import com.example.loginform.model.*
+import java.io.Serializable
 
-class LoginStatePresenter : LoginStateContract {
+class LoginStatePresenter : LoginStateContract, Serializable {
     private var view: LoginViewContract? = null
     private var isSuccess = false
+    private var errorText = ""
 
     override fun getSuccess() = LoginStateItems().getSuccess()
 
@@ -49,10 +52,24 @@ class LoginStatePresenter : LoginStateContract {
 
                 override fun onFinish() {
                     view?.showLoading(false)
-                    view?.setError(getErrorState().errorText)
+                    errorText = getErrorState().errorText
+                    view?.setError(errorText)
                 }
 
             }.start()
+        }
+    }
+
+    override fun getCurrentPresenter(): LoginStatePresenter {
+        return this
+    }
+
+    override fun onRestart(view: LoginViewContract) {
+        this.view = view
+        if (isSuccess) {
+            view.setSuccess(getSuccess().successText)
+        } else {
+            view.setError(errorText)
         }
     }
 }
