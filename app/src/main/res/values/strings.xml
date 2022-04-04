@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">LoginForm</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login_hint">Имя пользователя</string>
+    <string name="login_helper_text">Введите имя пользователя</string>
+    <string name="password_hint">Пароль</string>
+    <string name="password_helper_text">Введите пароль</string>
+    <string name="enter_button_text">Войти</string>
+    <string name="registration_button_text">Зарегистрироваться</string>
+    <string name="forgot_password_button_text">восстановить пароль</string>
+
 </resources>

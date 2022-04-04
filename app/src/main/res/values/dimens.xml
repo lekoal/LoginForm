@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_height">30dp</dimen>
+    <dimen name="edit_text_width_percent">0.7</dimen>
+    <dimen name="button_horizontal_margin">10dp</dimen>
+    <dimen name="forgot_password_button_text_size">10sp</dimen>
+    <dimen name="login_margin_top">60dp</dimen>
+    <dimen name="progress_layout_elevation">2dp</dimen>
+    <dimen name="progress_bar_margin_top">180dp</dimen>
+</resources>
